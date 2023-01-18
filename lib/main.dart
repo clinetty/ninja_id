@@ -1,24 +1,31 @@
-// ignore_for_file: unnecessary_const
+// ignore_for_file: unnecessary_const, prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const MaterialApp(
+  runApp(MaterialApp(
     home: NinjaCard(),
   ));
 }
 
-class NinjaCard extends StatelessWidget {
+class NinjaCard extends StatefulWidget {
   const NinjaCard({super.key});
+
+  @override
+  State<NinjaCard> createState() => _NinjaCardState();
+}
+
+class _NinjaCardState extends State<NinjaCard> {
+  int ninjaLevel = 0;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color.fromARGB(255, 35, 35, 35),
       appBar: AppBar(
-        title: const Text('Ninja ID Card'),
+        title: Text('Ninja ID Card'),
         centerTitle: true,
-        backgroundColor: const Color.fromARGB(255, 62, 62, 62),
+        backgroundColor: Color.fromARGB(255, 62, 62, 62),
         elevation: 0,
       ),
       body: Padding(
@@ -26,25 +33,25 @@ class NinjaCard extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Center(
+            Center(
               child: CircleAvatar(
                 backgroundImage: AssetImage('assets/ava.jpeg'),
                 radius: 40,
               ),
             ),
-            const Divider(
+            Divider(
               height: 60,
               color: Color.fromARGB(255, 74, 74, 74),
             ),
-            const Text(
+            Text(
               'NAME',
               style: TextStyle(
                 color: Colors.grey,
                 letterSpacing: 2.0,
               ),
             ),
-            const SizedBox(height: 10),
-            const Text(
+            SizedBox(height: 10),
+            Text(
               'Clinton',
               style: TextStyle(
                 color: Colors.amberAccent,
@@ -53,17 +60,17 @@ class NinjaCard extends StatelessWidget {
                 fontWeight: FontWeight.bold,
               ),
             ),
-            const SizedBox(height: 30),
-            const Text(
+            SizedBox(height: 30),
+            Text(
               'CURRENT NINJA LEVEL',
               style: TextStyle(
                 color: Colors.grey,
                 letterSpacing: 2.0,
               ),
             ),
-            const SizedBox(height: 10),
-            const Text(
-              '8',
+            SizedBox(height: 10),
+            Text(
+              '$ninjaLevel',
               style: TextStyle(
                 color: Colors.amberAccent,
                 letterSpacing: 2.0,
@@ -71,9 +78,9 @@ class NinjaCard extends StatelessWidget {
                 fontWeight: FontWeight.bold,
               ),
             ),
-            const SizedBox(height: 30),
+            SizedBox(height: 30),
             Row(
-              children: const [
+              children: [
                 Icon(
                   Icons.email,
                   color: Colors.grey,
