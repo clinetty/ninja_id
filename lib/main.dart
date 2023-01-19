@@ -28,6 +28,16 @@ class _NinjaCardState extends State<NinjaCard> {
         backgroundColor: Color.fromARGB(255, 62, 62, 62),
         elevation: 0,
       ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          setState(() {
+            ninjaLevel += 1;
+          });
+        },
+        backgroundColor: Colors.grey,
+        elevation: 0.0,
+        child: Icon(Icons.add),
+      ),
       body: Padding(
         padding: const EdgeInsets.fromLTRB(30, 40, 30, 0),
         child: Column(
